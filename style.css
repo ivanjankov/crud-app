@@ -4,6 +4,11 @@ button:focus {
 	box-shadow: none !important;
 	outline: #fff !important;
 }
+input:focus {
+	box-shadow: none;
+	outline: #fff;
+	padding-left: 0.5rem;
+}
 
 body {
 	font-family: 'Bai Jamjuree', sans-serif;
