@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+button:focus {
+	box-shadow: none !important;
+	outline: #fff !important;
+}
+
+body {
+	font-family: 'Bai Jamjuree', sans-serif;
+	font-size: 16px;
+}
+
+#crud-wrapper {
+	background-image: linear-gradient(180deg, #fdfbfb 0%, #dee 100%);
+	min-height: 100vh;
+}
+
+#title_wrapper {
+	min-height: 150px !important;
+}
+
+h1 {
+	font-size: 2.5rem !important;
+	border: 3px solid #273c75;
+	border-radius: 10px;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+#profit_tracker {
+	font-weight: 500;
+}
+
+#type_toggler {
+	border: none;
+}
+
+.title_card {
+	max-width: 180px;
+	border: 1px solid #c3c3c3 !important;
+	border-radius: 5px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+		rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+	width: 40%;
+	margin: 0 auto;
+}
+
+.expense {
+	background-image: linear-gradient(
+		to bottom,
+		#f32e29,
+		#f33934,
+		#f2423e,
+		#f14b48,
+		#f05351
+	);
+	color: #fff;
+}
+
+.income {
+	background-image: linear-gradient(
+		to bottom,
+		#36c336,
+		#56c12d,
+		#6cbe25,
+		#7ebc1f,
+		#8eb91c
+	);
+	color: #fff;
+}
+
+.individual_transaction {
+	max-height: 100px;
+	min-width: 20rem;
+	margin: 0 auto;
+	border: 1px solid #5a5a5a;
+	border-radius: 5px;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	padding: 0.5em 0.7em;
+}
+
+.single_income {
+	background: rgba(170, 221, 170, 0.2);
+}
+.single_expense {
+	background: rgba(249, 145, 143, 0.2);
+}
+
+#final_calculations {
+	position: fixed;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 20%;
+	font-size: 1.5rem;
+	font-weight: 600;
+	letter-spacing: 2px;
+}
