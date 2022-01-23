@@ -99,3 +99,11 @@ h1 {
 	font-weight: 600;
 	letter-spacing: 2px;
 }
+
+.btn_delete {
+	border: 1px solid #f05351;
+	padding: 0.5em;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}
