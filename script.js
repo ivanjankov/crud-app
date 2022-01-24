@@ -39,11 +39,12 @@ document.addEventListener('DOMContentLoaded', () => {
 			);
 
 			record.innerHTML = `
-            <p class="m-0">
-				${recordValues.desc} <span class="cost ms-3">${
-				recordValues.type == 'exp' ? ' - ' : ''
-			}$${convertToNum(recordValues.amount)}</span>
-			</p>
+			<div class="d-flex justify-content-between">
+				<p class="m-0">	${recordValues.desc}</p>
+				<span class="cost ms-3">${
+					recordValues.type == 'exp' ? ' - ' : ''
+				}$${convertToNum(recordValues.amount)}</span>
+			</div>            
 		    <button	class="btn btn_delete d-flex justify-content-center align-items-center">
 			    <i class="fas fa-times text-danger"></i>
 			</button>`;
@@ -72,7 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	function updateApp() {
-		insertNewRecord();
 		resetFileds();
 		deleteRecord();
 		calcTotal();
@@ -126,6 +126,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		console.log(Number(num.split(',').join('')));
 		return Number(num.split(',').join(''));
 	}
-
+	insertNewRecord();
 	updateApp();
 });
