@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 
 			resetFileds();
+			deleteRecord();
 		}
 	}
 
@@ -73,6 +74,18 @@ document.addEventListener('DOMContentLoaded', () => {
 		desc.value = '';
 		amount.value = 0;
 	}
+
+	function deleteRecord() {
+		let records = document.querySelectorAll('.btn_delete');
+		console.log(records);
+		records.forEach((btn) => {
+			btn.addEventListener('click', () => {
+				btn.parentElement.remove();
+			});
+		});
+	}
+
+	deleteRecord();
 
 	updateApp();
 	console.log(getRecord());
