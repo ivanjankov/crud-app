@@ -23,33 +23,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	function createNewRecord() {
 		let recordValues = getRecord();
+		if (recordValues.desc == '' || recordValues.amount == 0) {
+			alert('Fill all the fields');
+		} else {
+			let record = document.createElement('div');
+			record.classList.add(
+				'individual_transaction',
+				'd-flex',
+				'justify-content-around',
+				'align-items-center',
+				'my-2'
+			);
 
-		let record = document.createElement('div');
-		record.classList.add(
-			'individual_transaction',
-			'd-flex',
-			'justify-content-around',
-			'align-items-center',
-			'my-2'
-		);
-
-		record.innerHTML = `
+			record.innerHTML = `
             <p class="m-0">
-				${recordValues.desc} <span class="cost ms-3">$${recordValues.amount}</span>
+				${recordValues.desc} <span class="cost ms-3">${
+				recordValues.type == 'exp' ? ' - ' : ''
+			}$${recordValues.amount}</span>
 			</p>
 		    <button	class="btn btn_delete d-flex justify-content-center align-items-center">
 			    <i class="fas fa-times text-danger"></i>
 			</button>`;
 
-		if (recordValues.type == 'inc') {
-			record.classList.add('single_income');
-			document.getElementById(DOMStrings.profit).appendChild(record);
-		} else {
-			record.classList.add('single_expense');
-			document.getElementById(DOMStrings.expenses).appendChild(record);
-		}
+			if (recordValues.type == 'inc') {
+				record.classList.add('single_income');
+				document.getElementById(DOMStrings.profit).appendChild(record);
+			} else {
+				record.classList.add('single_expense');
+				document.getElementById(DOMStrings.expenses).appendChild(record);
+			}
 
-		resetFileds();
+			resetFileds();
+		}
 	}
 
 	function insertNewRecord() {
