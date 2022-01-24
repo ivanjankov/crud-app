@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		addBtn: '.add_btn',
 		profit: 'profit',
 		expenses: 'expenses',
+		singleIncome: '.single_income',
+		singleExpense: '.single_expense',
 	};
 
 	function getRecord() {
@@ -53,8 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				document.getElementById(DOMStrings.expenses).appendChild(record);
 			}
 
-			resetFileds();
-			deleteRecord();
+			updateApp();
 		}
 	}
 
@@ -65,6 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	function updateApp() {
 		insertNewRecord();
+		resetFileds();
+		deleteRecord();
+		calcTotal();
 	}
 
 	function resetFileds() {
@@ -77,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	function deleteRecord() {
 		let records = document.querySelectorAll('.btn_delete');
-		console.log(records);
 		records.forEach((btn) => {
 			btn.addEventListener('click', () => {
 				btn.parentElement.remove();
@@ -85,8 +88,25 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
-	deleteRecord();
+	function calcSepareteTypes(type) {
+		let total = [];
+		let totalIncome = Array.from(document.querySelectorAll(`${type} .cost`));
+		totalIncome.forEach((element) => {
+			let currentCost = element.innerHTML.split('$');
+			total.push(+currentCost[1]);
+		});
+		total = total.reduce((a, b) => a + b, 0);
+		return total;
+	}
+
+	function calcTotal() {
+		let income = calcSepareteTypes(DOMStrings.singleIncome);
+		let expenses = calcSepareteTypes(DOMStrings.singleExpense);
+
+		return income - expenses;
+	}
 
 	updateApp();
+
 	console.log(getRecord());
 });
