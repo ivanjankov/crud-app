@@ -85,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		records.forEach((btn) => {
 			btn.addEventListener('click', () => {
 				btn.parentElement.remove();
+				calcTotal();
 			});
 		});
 	}
