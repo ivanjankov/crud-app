@@ -19,6 +19,7 @@
 		/>
 
 		<link rel="stylesheet" href="style.css" />
+		<script src="script.js" type="text/javascript"></script>
 		<title>Crud App</title>
 	</head>
 	<body>
@@ -32,15 +33,16 @@
 					<div class="d-flex gap-3 justify-content-center">
 						<input
 							type="text"
-							id="enterence_descritpion"
+							id="enterance_descritpion"
 							placeholder="Add description"
+							class="enterance_description"
 						/>
-						<input type="number" min="0" value="0" />
-						<select class="p-2" name="type" id="type_toggler">
+						<input class="amount" type="number" min="0" value="0" />
+						<select class="p-2 input_type" name="type" id="type_toggler">
 							<option value="inc">Inc</option>
 							<option value="exp">Exp</option>
 						</select>
-						<button class="btn btn-primary">Add</button>
+						<button class="btn btn-primary add_btn">Add</button>
 						<!-- <button type="reset" class="btn btn-danger">Reset</button> -->
 					</div>
 				</div>
@@ -49,10 +51,7 @@
 			<div id="profit_tracker" class="my-5">
 				<div class="container">
 					<div class="row">
-						<div
-							id="profit"
-							class="col-md-6 d-flex flex-column justify-content-center"
-						>
+						<div id="profit" class="col-md-6 d-flex flex-column">
 							<div class="title_card p-3 text-center income mb-5">
 								<h2>Income</h2>
 							</div>
@@ -71,10 +70,7 @@
 							</div>
 						</div>
 
-						<div
-							id="expenses"
-							class="col-md-6 d-flex flex-column justify-content-center"
-						>
+						<div id="expenses" class="col-md-6 d-flex flex-column">
 							<div class="title_card p-3 text-center expense mb-5">
 								<h2>Expenses</h2>
 							</div>
