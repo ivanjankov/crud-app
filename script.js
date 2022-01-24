@@ -48,6 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
 			record.classList.add('single_expense');
 			document.getElementById(DOMStrings.expenses).appendChild(record);
 		}
+
+		resetFileds();
 	}
 
 	function insertNewRecord() {
@@ -57,6 +59,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	function updateApp() {
 		insertNewRecord();
+	}
+
+	function resetFileds() {
+		desc = document.querySelector(DOMStrings.inputDescription);
+		amount = document.querySelector(DOMStrings.inputAmount);
+
+		desc.value = '';
+		amount.value = 0;
 	}
 
 	updateApp();
