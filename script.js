@@ -39,15 +39,19 @@ document.addEventListener('DOMContentLoaded', () => {
 			);
 
 			record.innerHTML = `
-			<div class="d-flex justify-content-between">
-				<p class="m-0">	${recordValues.desc}</p>
-				<span class="cost ms-3">${
-					recordValues.type == 'exp' ? ' - ' : ''
-				}$${convertToNum(recordValues.amount)}</span>
-			</div>            
-		    <button	class="btn btn_delete d-flex justify-content-center align-items-center">
-			    <i class="fas fa-times text-danger"></i>
-			</button>`;
+				<div class="d-flex flex-column justify-content-between">
+					<div class="d-flex justify-content-between">
+						<p class="m-0">	${recordValues.desc}</p>
+						<span class="cost ms-3">${
+							recordValues.type == 'exp' ? ' - ' : ''
+						}$${convertToNum(recordValues.amount)}</span>
+					</div>    
+					<p class="date text-end py-2 m-0">${getDate()}</p>  
+				</div>      
+				<button	class="btn btn_delete d-flex justify-content-center align-items-center">
+					<i class="fas fa-times text-danger"></i>
+				</button>
+			`;
 
 			if (recordValues.type == 'inc') {
 				record.classList.add('single_income');
@@ -123,9 +127,21 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	function convertArrElToNum(num) {
-		console.log(Number(num.split(',').join('')));
 		return Number(num.split(',').join(''));
 	}
+
+	function getDate() {
+		let date = new Date();
+
+		let todaysDate = `${date.getDate()}/${
+			date.getMonth() + 1
+		}/${date.getFullYear()}`;
+
+		return todaysDate;
+	}
+
+	getDate();
+
 	insertNewRecord();
 	updateApp();
 });
