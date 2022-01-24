@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <p class="m-0">
 				${recordValues.desc} <span class="cost ms-3">${
 				recordValues.type == 'exp' ? ' - ' : ''
-			}$${recordValues.amount}</span>
+			}$${convertToNum(recordValues.amount)}</span>
 			</p>
 		    <button	class="btn btn_delete d-flex justify-content-center align-items-center">
 			    <i class="fas fa-times text-danger"></i>
@@ -101,9 +101,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		let totalIncome = Array.from(document.querySelectorAll(`${type} .cost`));
 		totalIncome.forEach((element) => {
 			let currentCost = element.innerHTML.split('$');
-			total.push(+currentCost[1]);
+			total.push(currentCost[1]);
 		});
-		total = total.reduce((a, b) => a + b, 0);
+		let newArr = total.map((el) => convertArrElToNum(el));
+		total = newArr.reduce((a, b) => a + b, 0);
 		return total;
 	}
 
@@ -117,7 +118,14 @@ document.addEventListener('DOMContentLoaded', () => {
 		return income - expenses;
 	}
 
-	updateApp();
+	function convertToNum(num) {
+		return parseInt(num).toLocaleString();
+	}
 
-	console.log(getRecord());
+	function convertArrElToNum(num) {
+		console.log(Number(num.split(',').join('')));
+		return Number(num.split(',').join(''));
+	}
+
+	updateApp();
 });
