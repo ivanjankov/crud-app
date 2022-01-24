@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		expenses: 'expenses',
 		singleIncome: '.single_income',
 		singleExpense: '.single_expense',
+		total: 'total',
 	};
 
 	function getRecord() {
@@ -102,7 +103,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	function calcTotal() {
 		let income = calcSepareteTypes(DOMStrings.singleIncome);
 		let expenses = calcSepareteTypes(DOMStrings.singleExpense);
-
+		let totalSpan = document.getElementById(DOMStrings.total);
+		totalSpan.innerText = `${income - expenses < 0 ? '- $' : '$'}${Math.abs(
+			income - expenses
+		)}`;
 		return income - expenses;
 	}
 
