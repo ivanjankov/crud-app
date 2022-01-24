@@ -62,6 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	function insertNewRecord() {
 		let addBtn = document.querySelector(DOMStrings.addBtn);
+		addEventListener('keydown', (e) => {
+			if (e.keyCode == 13) {
+				console.log(e);
+				createNewRecord();
+			}
+		});
 		addBtn.addEventListener('click', createNewRecord);
 	}
 
@@ -107,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		let totalSpan = document.getElementById(DOMStrings.total);
 		totalSpan.innerText = `${income - expenses < 0 ? '- $' : '$'}${Math.abs(
 			income - expenses
-		)}`;
+		).toLocaleString()}.00`;
 		return income - expenses;
 	}
 
