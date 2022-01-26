@@ -9,6 +9,9 @@ input:focus {
 	outline: #fff;
 	padding-left: 0.5rem;
 }
+input {
+	padding-left: 0.5rem;
+}
 
 body {
 	font-family: 'Bai Jamjuree', sans-serif;

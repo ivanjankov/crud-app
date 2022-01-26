@@ -116,9 +116,11 @@ document.addEventListener('DOMContentLoaded', () => {
 		let income = calcSepareteTypes(DOMStrings.singleIncome);
 		let expenses = calcSepareteTypes(DOMStrings.singleExpense);
 		let totalSpan = document.getElementById(DOMStrings.total);
-		totalSpan.innerText = `${income - expenses < 0 ? '- $' : '$'}${Math.abs(
+		total = income - expenses;
+		totalSpan.innerText = `${total < 0 ? '- $' : '$'}${Math.abs(
 			income - expenses
 		).toLocaleString()}.00`;
+		changeColor(total, totalSpan);
 		return income - expenses;
 	}
 
@@ -138,6 +140,14 @@ document.addEventListener('DOMContentLoaded', () => {
 		}/${date.getFullYear()}`;
 
 		return todaysDate;
+	}
+
+	function changeColor(total, element) {
+		if (total < 0) {
+			element.style.color = 'red';
+		} else {
+			element.style.color = 'green';
+		}
 	}
 
 	getDate();
