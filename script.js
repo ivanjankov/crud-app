@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		singleExpense: '.single_expense',
 		total: 'total',
 		typeToggler: 'type_toggler',
+		modal: 'mymodal',
+		closeModal: 'close',
+		modalImg: 'modal_img',
 	};
 
 	function getRecord() {
@@ -81,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		resetFileds();
 		deleteRecord();
 		calcTotal();
+		modalFuncionality();
 	}
 
 	function resetFileds() {
@@ -171,4 +175,37 @@ document.addEventListener('DOMContentLoaded', () => {
 	getDate();
 	insertNewRecord();
 	updateApp();
+
+	// MODAL
+
+	function modalFuncionality() {
+		let modal = document.getElementById(DOMStrings.modal);
+		let closeModal = document.getElementsByClassName(DOMStrings.closeModal)[0];
+		let totalAmount = calcTotal();
+
+		setTimeout(() => {
+			if (totalAmount < -1000) {
+				fillModalContent(totalAmount);
+				modal.style.display = 'block';
+				closeModal.addEventListener('click', () => {
+					modal.style.display = 'none';
+				});
+			} else if (totalAmount > 40000) {
+				fillModalContent();
+				modal.style.display = 'block';
+				closeModal.addEventListener('click', () => {
+					modal.style.display = 'none';
+				});
+			}
+		}, 2000);
+	}
+
+	function fillModalContent(total) {
+		let modalImg = document.getElementById(DOMStrings.modalImg);
+		if (total > 40000) {
+			modalImg.setAttribute('src', 'img/modal/agency.jpeg');
+		} else if (total < 1000) {
+			modalImg.setAttribute('src', 'img/modal/kredisimo.png');
+		}
+	}
 });
