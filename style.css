@@ -78,11 +78,45 @@ h1 {
 	color: #fff;
 }
 
+.add_btn {
+	position: relative;
+	overflow: hidden;
+	background-image: linear-gradient(
+		to bottom,
+		#2487c9,
+		#429fde,
+		#51a7e0,
+		#429fde,
+		#2487c9
+	);
+	color: #fff;
+}
+.add_btn:hover {
+	color: #fff;
+}
+
+.add_btn:after {
+	position: absolute;
+	content: '';
+	width: 20px;
+	height: 100%;
+	background-color: rgba(241, 241, 241, 0.1);
+	bottom: 0;
+	left: 0;
+	transform: translateX(60px) skew(45deg);
+	transition: transform 0.2s ease;
+}
+
+.add_btn:hover:after {
+	transform: translateX(-30px);
+	transition: transform 0.2s ease;
+}
+
 .individual_transaction {
 	max-height: 100px;
 	min-width: 20rem;
 	margin: 0 auto;
-	border: 1px solid #5a5a5a;
+	border: 1px solid #bdc3c7;
 	border-radius: 5px;
 	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 	padding: 0.5em 0.7em;
