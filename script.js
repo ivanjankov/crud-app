@@ -184,14 +184,14 @@ document.addEventListener('DOMContentLoaded', () => {
 		let totalAmount = calcTotal();
 
 		setTimeout(() => {
+			fillModalContent(totalAmount);
 			if (totalAmount < -1000) {
-				fillModalContent(totalAmount);
 				modal.style.display = 'block';
 				closeModal.addEventListener('click', () => {
 					modal.style.display = 'none';
 				});
 			} else if (totalAmount > 40000) {
-				fillModalContent();
+				fillModalContent(totalAmount);
 				modal.style.display = 'block';
 				closeModal.addEventListener('click', () => {
 					modal.style.display = 'none';
