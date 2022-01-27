@@ -57,11 +57,11 @@ h1 {
 .expense {
 	background-image: linear-gradient(
 		to bottom,
-		#f32e29,
+		#c72918,
 		#f33934,
 		#f2423e,
 		#f14b48,
-		#f05351
+		#c72918
 	);
 	color: #fff;
 }
@@ -69,11 +69,11 @@ h1 {
 .income {
 	background-image: linear-gradient(
 		to bottom,
-		#36c336,
-		#56c12d,
-		#6cbe25,
-		#7ebc1f,
-		#8eb91c
+		#18ad90,
+		#1edab5,
+		#1edab5,
+		#28e1bd,
+		#18ad90
 	);
 	color: #fff;
 }
