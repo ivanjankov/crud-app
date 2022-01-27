@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		singleIncome: '.single_income',
 		singleExpense: '.single_expense',
 		total: 'total',
+		typeToggler: 'type_toggler',
 	};
 
 	function getRecord() {
@@ -150,8 +151,24 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	}
 
-	getDate();
+	function changeFocusOutlineClr() {
+		let inputs = document.querySelectorAll('input');
+		let typeToggler = document.getElementById(DOMStrings.typeToggler);
+		typeToggler.addEventListener('change', () => {
+			if (typeToggler.value == 'inc') {
+				inputs.forEach((el) => {
+					el.style.borderColor = 'green';
+				});
+			} else {
+				inputs.forEach((el) => {
+					el.style.borderColor = 'red';
+				});
+			}
+		});
+	}
 
+	changeFocusOutlineClr();
+	getDate();
 	insertNewRecord();
 	updateApp();
 });
